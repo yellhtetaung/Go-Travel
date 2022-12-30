@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import { Attractions, Avatar, Hotels, NotFound, Restaurants } from "../assets";
 import MenuContainer from "../components/MenuContainer";
 import { FontAwesome } from "@expo/vector-icons";
+import { getPlacesData } from "../api";
 
 import ItemCardContainer from "../components/ItemCardContainer";
 
@@ -26,6 +27,16 @@ const Discover = () => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
+    });
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPlacesData().then((data) => {
+      setMainData(data);
+      setInterval(() => {
+        setIsLoading(false);
+      }, 2000);
     });
   }, []);
 
