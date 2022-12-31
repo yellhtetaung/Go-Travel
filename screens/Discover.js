@@ -123,22 +123,19 @@ const Discover = () => {
             <View className="flex-row items-center justify-evenly flex-wrap px-4 mt-8">
               {mainData?.length > 0 ? (
                 <>
-                  <ItemCardContainer
-                    key={"101"}
-                    imageSrc={
-                      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
-                    }
-                    title="Something a very big"
-                    location="Doha"
-                  />
-                  <ItemCardContainer
-                    key={"102"}
-                    imageSrc={
-                      "https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_960_720.jpg"
-                    }
-                    title="Simple"
-                    location="Qatar"
-                  />
+                  {mainData?.map((data, i) => (
+                    <ItemCardContainer
+                      key={i}
+                      data={data}
+                      imageSrc={
+                        data?.photo?.images?.medium?.url
+                          ? data?.photo?.images?.medium?.url
+                          : "https://cdn.pixabay.com/photo/2015/10/30/12/22/eat-1014025_1280.jpg"
+                      }
+                      title={data?.name}
+                      location={data?.location_string}
+                    />
+                  ))}
                 </>
               ) : (
                 <>
