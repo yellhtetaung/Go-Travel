@@ -1,11 +1,6 @@
 import React, { useLayoutEffect } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import * as Animatable from "react-native-animatable";
 import { HeroImage } from "../assets";
@@ -21,6 +16,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white relative">
+      <StatusBar style="auto" />
       {/* First Section */}
       <View className="flex-row px-6 mt-8 items-center space-x-2">
         <View className="w-16 h-16 bg-black rounded-full items-center justify-center">
@@ -44,7 +40,7 @@ const HomeScreen = () => {
       </View>
 
       {/* Circle Section */}
-      <View className="w-[400px] h-[400px] bg-[#00BCC9] rounded-full absolute bottom-36 -right-36"></View>
+      <View className="w-[400px] h-[400px] bg-[#00BCC9] rounded-full absolute bottom-10 -right-36"></View>
       <View className="w-[400px] h-[400px] bg-[#E99265] rounded-full absolute -bottom-28 -left-36"></View>
 
       {/* Image Container */}
@@ -55,9 +51,10 @@ const HomeScreen = () => {
           source={HeroImage}
           className="w-full h-full object-cover mt-20"
         />
+
         <TouchableOpacity
           onPress={() => navigation.navigate("Discover")}
-          className="absolute bottom-20 w-24 h-24  border-l-2 border-r-2 border-t-4 border-[#00BCC9] rounded-full items-center justify-center"
+          className="absolute bottom-20 w-24 h-24 border-l-2 border-r-2 border-t-4 border-[#00BCC9] rounded-full items-center justify-center"
         >
           <Animatable.View
             animation="pulse"

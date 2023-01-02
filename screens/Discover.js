@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState, useEffect } from "react";
+import { StatusBar } from "expo-status-bar";
 import {
   View,
   Text,
@@ -42,10 +43,11 @@ const Discover = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white relative">
+      <StatusBar style="auto" />
       <View className="flex-row items-center justify-between px-8">
         <View>
-          <Text className="text-[40px] text-[#0B646B] font-bold">Discover</Text>
-          <Text className="text-[#527273] text-[36px]">The beauty today</Text>
+          <Text className="text-[35px] text-[#0B646B] font-bold">Discover</Text>
+          <Text className="text-[#527273] text-[30px]">The beauty today</Text>
         </View>
 
         <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center">
@@ -64,7 +66,7 @@ const Discover = () => {
             console.log(data, details);
           }}
           query={{
-            key: "",
+            key: "AIzaSyDWpuVw2apN-XgX3gmrzsHrZgr1AG4sCxQ",
             language: "en",
           }}
         />
@@ -120,7 +122,7 @@ const Discover = () => {
               </TouchableOpacity>
             </View>
 
-            <View className="flex-row items-center justify-evenly flex-wrap px-4 mt-8">
+            <View className="flex-row items-center justify-evenly flex-wrap mt-8">
               {mainData?.length > 0 ? (
                 <>
                   {mainData?.map((data, i) => (

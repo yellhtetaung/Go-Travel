@@ -14,6 +14,8 @@ const ItemScreen = ({ route }) => {
   const navigation = useNavigation();
   const data = route?.params?.param;
 
+  console.log(route.params);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
